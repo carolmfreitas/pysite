@@ -7,18 +7,16 @@ from .models import Perfil
 from django.shortcuts import redirect
 from .forms import PerfilForm
 from .models import Evento
-from datetime import datetime
 
 def base_view(request):
-    return render(request, 'content/base.html', {})
+    return render(request, 'content/index.html', {})
 
 def sobre_detalhe(request):
     sobre = get_object_or_404(Sobre)
     return render(request, 'content/sobre_detalhe.html', {'sobre': sobre})
 
 def eventos_list(request):
-    today = datetime.date.today()
-    eventos = EventoAgendado.objects.all().order_by(today.month)
+    eventos = EventoAgendado.objects.all().order_by('data_inicial')
     return render(request, 'content/eventos_list.html', {'eventos': eventos})
 
 def perfis_list(request):
@@ -39,3 +37,5 @@ def perfil_novo(request):
 def pyladiesday_eventos(request):
     eventos = Evento.objects.all()
     return render(request, 'content/pyladiesday_eventos.html', {'eventos': eventos})
+
+
