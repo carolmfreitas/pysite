@@ -7,6 +7,7 @@ from .models import Perfil
 from django.shortcuts import redirect
 from .forms import PerfilForm
 from .models import Evento
+from django.core.paginator import Paginator
 
 def base_view(request):
     return render(request, 'content/index.html', {})
@@ -16,7 +17,10 @@ def sobre_detalhe(request):
     return render(request, 'content/sobre_detalhe.html', {'sobre': sobre})
 
 def eventos_list(request):
-    eventos = EventoAgendado.objects.all().order_by('data_inicial')
+    lista_eventos = EventoAgendado.objects.all().order_by('data_inicial')
+    paginator = Paginator(lista_eventos, 2)
+    page = request.GET.get('page')
+    eventos = paginator.get_page(page)
     return render(request, 'content/eventos_list.html', {'eventos': eventos})
 
 def perfis_list(request):
