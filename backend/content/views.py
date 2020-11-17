@@ -1,13 +1,10 @@
-from django.shortcuts import render
-from .models import Sobre
+from django.core.paginator import Paginator
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from .models import EventoAgendado
-from .models import Perfil
-from django.shortcuts import redirect
+from .models import EventoAgendado, Perfil, Evento, Sobre
 from .forms import PerfilForm
-from .models import Evento
-from django.core.paginator import Paginator
+
 
 def base_view(request):
     return render(request, 'content/index.html', {})
@@ -33,10 +30,10 @@ def perfil_novo(request):
         if form.is_valid():
             perfil = form.save()
             perfil.save()
-            return redirect('perfis_list')
+            return HttpResponseRedirect('/perfis/')
     else:
         form = PerfilForm()
-    return render(request, 'content/perfil_novo.html', {'form': form})
+    return render(request, 'content/perfis_list.html', {'form': form})
 
 def pyladiesday_eventos(request):
     eventos = Evento.objects.all()

@@ -22,7 +22,7 @@ class Perfil(models.Model):
     id_perfil = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     nome = models.CharField(max_length=200)
     email = models.EmailField(max_length=254)
-    cidade = models.CharField(max_length=200)
+    city = models.CharField(max_length=200)
     profissao = models.CharField(max_length=200)
     linkedin = models.URLField(max_length=200, null=True, blank=True) 
     site = models.URLField(max_length=200, null=True, blank=True)

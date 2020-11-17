@@ -16,18 +16,18 @@
     </header>
     <!--Carrossel-->
     <div id="slider">
-        <input type="radio" name="slider" id="slide1" checked>
-        <input type="radio" name="slider" id="slide2">
-        <input type="radio" name="slider" id="slide3">
-        <input type="radio" name="slider" id="slide4">
-        <input type="radio" name="slider" id="slide5">
-        <input type="radio" name="slider" id="slide6">
-        <input type="radio" name="slider" id="slide7">
-        <input type="radio" name="slider" id="slide8">
-        <input type="radio" name="slider" id="slide9">
-        <input type="radio" name="slider" id="slide10">
-        <input type="radio" name="slider" id="slide11">
-        <input type="radio" name="slider" id="slide12">
+        <input data-target="#myCarousel" type="radio" name="slider" checked>
+        <input data-target="#myCarousel" type="radio" name="slider">
+        <input data-target="#myCarousel" type="radio" name="slider">
+        <!-- <input data-target="#myCarousel" type="radio" name="slider">
+        <input data-target="#myCarousel" type="radio" name="slider">
+        <input data-target="#myCarousel" type="radio" name="slider">
+        <input data-target="#myCarousel" type="radio" name="slider">
+        <input data-target="#myCarousel" type="radio" name="slider">
+        <input data-target="#myCarousel" type="radio" name="slider">
+        <input data-target="#myCarousel" type="radio" name="slider">
+        <input data-target="#myCarousel" type="radio" name="slider">
+        <input data-target="#myCarousel" type="radio" name="slider"> -->
         <div id="slides">
             <div id="overflow">
                <div class="inner">
@@ -36,7 +36,7 @@
                     {% for evento in eventos %}
                         <div class="events-container" id="archive">
                             <ul class="grid">
-                                <li data="2020-08-13">
+                                <li>
                                     <a href="{{ evento.link }}" target="_blank">
                                         <div class="month">
                                             {{ evento.titulo }}
@@ -57,10 +57,10 @@
             </div>
          </div>
          <div id="controls">
-            <label for="slide1"></label>
-            <label for="slide2"></label>
-            <label for="slide3"></label>
-            <label for="slide4"></label>
+            <label for="#myCarousel"></label>
+            <label for="#myCarousel"></label>
+            <label for="#myCarousel"></label>
+            <!-- <label for="slide4"></label>
             <label for="slide5"></label>
             <label for="slide6"></label>
             <label for="slide7"></label>
@@ -68,13 +68,13 @@
             <label for="slide9"></label>
             <label for="slide10"></label>
             <label for="slide11"></label>
-            <label for="slide12"></label>
+            <label for="slide12"></label> -->
          </div>
          <div id="bullets">
-            <label for="slide1"></label>
-            <label for="slide2"></label>
-            <label for="slide3"></label>
-            <label for="slide4"></label>
+            <label for="#myCarousel"></label>
+            <label for="#myCarousel"></label>
+            <label for="#myCarousel"></label>
+            <!-- <label for="slide4"></label>
             <label for="slide5"></label>
             <label for="slide6"></label>
             <label for="slide7"></label>
@@ -82,7 +82,7 @@
             <label for="slide9"></label>
             <label for="slide10"></label>
             <label for="slide11"></label>
-            <label for="slide12"></label>
+            <label for="slide12"></label> -->
          </div>
       </div>    
 {% endblock %}

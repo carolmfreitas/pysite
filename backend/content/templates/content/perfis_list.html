@@ -52,7 +52,7 @@
                     <select name="city2" disabled required class="pesquisa">
                         <option value="">Cidade</option>
                     </select>
-                    <script src="cidade-seletor2/select-city2.js"></script>
+                    <script src="../static/cidade-seletor2/select-city2.js"></script>
                 </td>
                 <td>
                     <a href="#"><i class="fas fa-search"></i></a>
@@ -116,94 +116,94 @@
         <h1 href="https://www.pretalab.com/">Perfis inspirados no site <a href="https://www.pretalab.com/">PretaLab,</a>que reúne profissionais negras brasileiras atuantes no campo da tecnologia e inovação. Como elas, nós também queremos criar um portfolio com garotas integrantes do PyLadies Paraíba, faça seu cadastro e apareça no site! </h1>
         <div class="container">
             <h2>Cadastro</h2>
-            <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
-            <div class="row100">
-                <div class="col">
-                    <div class="inputBox">
-                        <input type="text" name="" required="required" value="{{ form.nome }}">
-                        <span class="text">Nome*</span>
-                        <span class="line"></span>
+            <form action="{% url 'perfil_novo' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+                <div class="row100">
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="nome" required="required" value="{{ form.nome }}">
+                            <span class="text">Nome*</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="email" required="required" value="{{ form.email }}">
+                            <span class="text">Email*</span>
+                            <span class="line"></span>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="inputBox">
-                        <input type="text" name="" required="required" value="{{ form.email }}">
-                        <span class="text">Email*</span>
-                        <span class="line"></span>
+                <div class="row100">
+                    <div class="col">
+                        <div class="inputBox">
+                            <!--<input type="text" name="" required="required">-->
+                            <span class="text">Cidade*</span>
+                            <select name="city" disabled required class="cidade-form">
+                                <option value=""></option>
+                            </select>
+                            <script src="../static/cidade-seletor/select-city.js"></script>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="profissao" required="required" value="{{ form.profissao }}">
+                            <span class="text">Profissão*</span>
+                            <span class="line"></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row100">
-                <div class="col">
-                    <div class="inputBox">
-                        <!--<input type="text" name="" required="required">-->
-                        <span class="text">Cidade*</span>
-                        <select name="city" disabled required class="cidade-form">
-                            <option value=""></option>
-                        </select>
-                        <script src="cidade-seletor/select-city.js"></script>
-                        <span class="line"></span>
+                <div class="row100">
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="linkedin" value="{{ form.linkedin }}">
+                            <span class="text">Linkedin (URL)</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="github" value="{{ form.linkedin }}">
+                            <span class="text">Github (URL)</span>
+                            <span class="line"></span>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="inputBox">
-                        <input type="text" name="" required="required" value="{{ form.profissao }}">
-                        <span class="text">Profissão*</span>
-                        <span class="line"></span>
+                <div class="row100">
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="site" value="{{ form.site }}">
+                            <span class="text">Site (URL)</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="facebook" value="{{ form.facebook }}">
+                            <span class="text">Facebook (URL)</span>
+                            <span class="line"></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row100">
-                <div class="col">
-                    <div class="inputBox">
-                        <input type="text" name="" required="required" value="{{ form.linkedin }}">
-                        <span class="text">Linkedin (URL)</span>
-                        <span class="line"></span>
+                <div class="row100">
+                    <div class="col">
+                        <div class="inputBox textarea">
+                            <textarea name="biografia" required="required" value="{{ form.biografia }}"></textarea>
+                            <span class="text">Bio*</span>
+                            <span class="line"></span>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="inputBox">
-                        <input type="text" name="" required="required" value="{{ form.linkedin }}">
-                        <span class="text">Github (URL)</span>
-                        <span class="line"></span>
+                <div class="row100">
+                    <div class="col-up">
+                        <input name="foto" type="file" class="file" accept="image/*" value="{{ form.foto }}">
                     </div>
                 </div>
-            </div>
-            <div class="row100">
-                <div class="col">
-                    <div class="inputBox">
-                        <input type="text" name="" required="required" value="{{ form.site }}">
-                        <span class="text">Site (URL)</span>
-                        <span class="line"></span>
+                <div class="row100">
+                    <div class="col">
+                        <input type="submit" value="Cadastrar-se">
                     </div>
                 </div>
-                <div class="col">
-                    <div class="inputBox">
-                        <input type="text" name="" required="required" value="{{ form.facebook }}">
-                        <span class="text">Facebook (URL)</span>
-                        <span class="line"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="row100">
-                <div class="col">
-                    <div class="inputBox textarea">
-                        <textarea required="required" value="{{ form.biografia }}"></textarea>
-                        <span class="text">Bio*</span>
-                        <span class="line"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="row100">
-                <div class="col-up">
-                    <input type="file" class="file" accept="image/*" value="{{ form.foto }}">
-                </div>
-            </div>
-            <div class="row100">
-                <div class="col">
-                    <input type="submit" value="Cadastrar-se">
-                </div>
-            </div>
             </form>
         </div>
         </div>
